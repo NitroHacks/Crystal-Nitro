@@ -1,0 +1,738 @@
+<script src="cdn-cgi/apps/head/EUOpYOhN3ZQN6GXZPOrTZAw_uGM.js"></script><script>
+        window.addEventListener("hashchange", function () {
+            window.scrollBy(0, -100)
+        });
+
+        window.onload = function() {
+            // Fixes position of the anchor on page load
+            window.scrollBy(0, -100)
+
+            // When the user scrolls down 20px from the top of the document, show the button
+            const scroll_btn = document.getElementById("scrollup");
+            window.onscroll = function () {
+                const scrollTop = document.body.scrollTop ?? document.documentElement.scrollTop;
+                scroll_btn.style.display = scrollTop > 175 ? "block" : "none";
+            };
+
+            // When the user clicks on the button, scroll to the top of the document
+            scroll_btn.onclick = function () {
+                try {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                } catch (ex) {
+                    // Fallback to scrollTop apis
+                    document.body.scrollTop = 0; // For Safari
+                    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+                }
+            }
+        }
+    </script>
+<style>
+        .row {
+            margin-top: 10px;
+            padding: 0 10px;
+        }
+
+
+        .oaerror p {
+            margin: 0;
+        }
+
+        .error-notice {
+            margin: 5px 5px; /* Making sure to keep some distance from all side */
+        }
+
+        .oaerror {
+            width: 100%; /* Configure it fit in your design  */
+            margin: 0 auto; /* Centering Stuff */
+            background-color: #FFFFFF; /* Default background */
+            padding: 20px;
+            border: 1px solid #eee;
+            border-left-width: 5px;
+            border-radius: 3px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+        }
+
+        .oaerror h5 {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .danger hr {
+            background: #d9534f;
+        }
+
+        .danger {
+            border-left-color: #d9534f; /* Left side border color */
+        }
+
+        .warning hr {
+            background: #f0ad4e;
+        }
+
+        .warning {
+            border-left-color: #f0ad4e;
+        }
+
+        .info hr {
+            background: #5bc0de;
+        }
+
+        .info {
+            border-left-color: #5bc0de;
+        }
+
+        .success hr {
+            background: #2b542c;
+        }
+
+        .success {
+            border-left-color: #2b542c;
+        }
+
+        .socialrp hr {
+            background: #FF9900;
+        }
+
+        .socialrp {
+            border-left-color: #FF9900;
+        }
+
+        .sort hr {
+            background: #000000;
+        }
+
+        .sort {
+            border-left-color: #000000;
+        }
+
+        .gult hr {
+            background: #FFD700;
+        }
+
+        .gult {
+            border-left-color: #FFD700;
+        }
+
+        .lightgreen hr {
+            background: #ADFF2F;
+        }
+
+        .lightgreen {
+            border-left-color: #ADFF2F;
+        }
+
+        .brown hr {
+            background: #8B4513;
+        }
+
+        .brown {
+            border-left-color: #8B4513;
+        }
+
+        .rosybrown hr {
+            background: rosybrown;
+        }
+
+        .rosybrown {
+            border-left-color: rosybrown;
+        }
+
+        .pink hr {
+            background: #FF66FF;
+        }
+
+        .pink {
+            border-left-color: #FF66FF;
+        }
+
+        .orange hr {
+            background: #c97a57;
+        }
+
+        .orange {
+            border-left-color: #c97a57;
+        }
+
+        .grey hr {
+            background: #737373;
+        }
+
+        .grey {
+            border-left-color: #737373;
+        }
+
+        .greenb hr {
+            background: #00a3aa;
+        }
+
+        .greenb {
+            border-left-color: #00a3aa;
+        }
+
+        .topbox {
+            padding: 15px;
+            background-color: #2C2F33;
+            border-radius: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .category, .category:visited, .category:hover, .category:active {
+            margin: 4px;
+            padding: 4px;
+            background-color: grey;
+            border-radius: 10px;
+
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-family: "Segoe UI", serif;
+            font-size: 13px;
+        }
+
+        .category.orange {
+            background-color: orange;
+        }
+
+        .category.red {
+            background-color: #d9534f;
+        }
+
+        .category.rosybrown {
+            background-color: rosybrown;
+        }
+
+        .category.blue {
+            background-color: #5bc0de;
+        }
+
+        .category.orange2 {
+            background-color: #f0ad4e;
+        }
+
+        .category.darkgreen {
+            background-color: #2b542c;
+        }
+
+        .category.black {
+            background-color: black;
+        }
+
+        .category.yellow {
+            background-color: #FFD700;
+        }
+
+        .category.lightgreen {
+            background-color: #ADFF2F;
+        }
+
+        .category.brown {
+            background-color: #8B4513;
+        }
+
+        .category.pink {
+            background-color: #FF66FF;
+        }
+
+        .category.brass {
+            background-color: #c97a57;
+        }
+
+        .category.grey {
+            background-color: #737373;
+        }
+
+        .category.bondiblue {
+            background-color: #00a3aa;
+        }
+
+        #scrollup {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 20px; /* Place the button at the bottom of the page */
+            right: 30px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: #2C2F33; /* Set a background color */
+            color: white; /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 15px; /* Some padding */
+            border-radius: 10px; /* Rounded corners */
+            font-size: 15px; /* Increase font size */
+            text-transform: uppercase;
+            font-weight: bold;
+            font-family: 'Segoe UI', serif;
+        }
+
+        #scrollup:hover {
+            background-color: #555; /* Add a dark-grey background on hover */
+        }
+
+    </style>
+<!DOCTYPE html>
+<html lang="da">
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta name="csrf-token" content="Z3dDrK1bLWCUA4zioMd0YnaI458mRSCPBai96WpP">
+<title>Crystal</title>
+<link rel="stylesheet" href="../use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+<link rel="shortcut icon" href="img/thumbnail.png">
+<link href="css/app.css" rel="stylesheet">
+<link href="css/frontstyle.css" rel="stylesheet">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119390166-1"></script>
+<script>
+  	window.dataLayer = window.dataLayer || [];
+  	function gtag(){dataLayer.push(arguments);}
+  	gtag('js', new Date());
+  	gtag('config', 'UA-119390166-1');
+  	</script>
+
+<meta property="og:title" content="Crystal">
+<meta property="og:description" content="Dansk FiveM/GTA roleplay community">
+<meta property="og:image" content="#">
+<meta property="og:image:alt" content="img/nitro.gif">
+<meta property="og:url" content="https://shoppy.gg/product/7faH4fH">
+</head>
+<body>
+<div id="app">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<div class="container">
+<a class="navbar-brand" href="index.html">
+<img height="40" src="img/logo1.png" />
+</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarResponsive">
+<ul class="navbar-nav ml-auto">
+<li class="nav-item active">
+<a class="nav-link" href="index.html">Home
+<span class="sr-only">(current)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="https://discord.gg/B7bGqgR">Discord</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="serverstatus.html">FiveM Server Status</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="regler.html">Regler</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-12">
+<div class="topbox">
+<a class="category orange" href="#generelle">
+GENERAL RULES
+</a>
+<a class="category red" href="#roleplay">
+ROLEPLAY RULES
+</a>
+<a class="category rosybrown" href="#2nd">
+MORE CHARACTERS
+</a>
+<a class="category blue" href="#ooc">
+OUT OF CHARACTER (OOC)
+</a>
+<a class="category orange2" href="#korsel">
+DRIVING
+</a>
+<a class="category darkgreen" href="#arbejde">
+JOBS
+</a>
+<a class="category black" href="#opkald">
+CALL & COMMUNICATION
+</a>
+<a class="category yellow" href="#bugs">
+BUGS, CHEATING, HACKING
+</a>
+<a class="category lightgreen" href="#bander">
+GANGS
+</a>
+<a class="category brown" href="#vaaben">
+ARMS
+</a>
+<a class="category pink" href="#roeveri">
+ROBBERY
+</a>
+<a class="category brass" href="#karakterdrab">
+CHARACTER KILLING
+</a>
+<a class="category grey" href="#handlinger">
+ACTIONS
+</a>
+<a class="category bondiblue" href="#koebsalg">
+PURCHASE & SALES
+</a>
+</div>
+<div align="right"><br />
+<p>Rules last updated<i>May 5, 2020</i></p></div>
+<div class="error-notice">
+<div class="oaerror socialrp" id="generelle">
+<h5>GENERAL RULES / OUTGAME RULES</h5>
+<hr>
+<p><strong>0.0</strong> : It is <u>not</u> allowed to contact server personnel in private messages without
+prior acceptance. Use our support channels on Discord.</p>
+<p><strong>0.1</strong> : Advertising and / or links are<u>not</u>allowed. (Discord tag<i>"Streamer /
+CC"</i> is
+except for this rule, and may have their own Twitch link in name.)</p>
+<p><strong>0.2</strong> : [<b style="color:orange;">CHANGED</b>] You need to talk / write nicely about our users. FIVEM SERVER NAME HERE takes great distance
+to harass / racism / bully our users.
+<ul>
+<li>Example: Negroes and similar scolding words are completely no-go and provide instant ban. <i>(The rule is made to protect our streamers.)</i>
+</li>
+</ul>
+</p>
+<p><strong>0.3</strong> : It is not allowed to be salted / toxic to other users in the community and may result in ban. We want a good tone and an adult community.</p>
+<p><strong>0.4</strong> : Do not <u>do not</u> interfere in other people's admin / support cases unless you
+itself has been part of the RP. (<i>Serious violations such as: RDM, VDM, Bugabuse, etc. are
+excluded)</i></p>
+<p><strong>0.5</strong> : Your user as well as your whitelist at SocialRP is personal and may not be disclosed or loaned to another party (or third party).</p>
+</div>
+</div>
+<div class="error-notice">
+<div class="oaerror danger" id="roleplay">
+<h5>ROLEPLAY RULES</h5>
+<hr>
+<p><strong>1.0</strong> : Think realistically - you have to behave as you really would.</p>
+<p><strong>1.1</strong> : You must have a <b>good</b>
+microphone to play on our servers. It is also allowed to use <b><u>not</u></b>
+voice changer or other external programs to change its voice.</p>
+<p><strong>1.2</strong> : Of course, when you are dead / unconscious, you can <u>not</u> talk
+Twitter or similar.</p>
+<p><strong>1.3</strong> : It is <u>not</u> allowed to reconnect to shorten your time as
+unconscious.</p>
+<p><strong>1.4</strong> : You have to fear for your life
+(FearRP). This means, for example, that you <u>do not</u> have to pull weapons if another player has you down
+weapon points. (refer to
+section<a href="#karakterdrab">character Killing</a>)
+<ul>
+<li>Example: You rob a store and run out of the store with your weapon. Out on the other side
+If a police officer is armed with a weapon, you must <u>not</u> try to pull your weapon towards
+officer - you have to FEAR your life.
+</li>
+</ul>
+</p>
+<p><strong>1.5</strong> : No metagaming: Don't <u>don't</u>
+Take the knowledge that you have gained outside the game and use it ingame. This applies for example.
+information from a live stream or via Discord / TeamSpeak. It is also <u>not</u> allowed to
+share your character's thoughts by a / me command.</p>
+<p><strong>1.6</strong> : RDM (Random DeathMatch), VDM (Vehicle DeathMatch) or metagaming
+it will be hit very hard as this is considered FailRP. Zero tolerance.
+<li style="padding-left: 3%;"><i>RDM / VDM = No RP has been prior to beating a person down,
+or to death</i></li>
+</p>
+<p><strong>1.7</strong> : Always comply with NLR (New Life Rule) - If your character becomes unconscious can
+you<u>don't</u> remember what just happened and why you are unconscious.
+<li style="padding-left: 3%;"><i>Exception: If you are picked up by another player who is from the Emergency or Police, you may well remember what happened</i></li>
+</p>
+<p><strong>1.8</strong> : It is <u>not</u> allowed to steal service cars unless it has gone
+RP
+prior to this - and it makes sense for your character to make it RP in terms of.</p>
+<p><strong>1.9</strong> : Always remember to have a proof and player ID if you want to charge one
+another player facing an admin. For example, we recommend people to have<a href="https://medal.tv/" target="_blank">Medal.tv</a> running - though <u>not</u>
+a demand.</p>
+<p><strong>1.10</strong> : Powergaming is <u>not</u> allowed.
+The following are examples of powergaming:
+<ul>
+<li>
+Not answering 100% honestly to <i>/do</i> commands (Note that in-character you / your character must lie so the pants fly)
+</li>
+<li>
+To deliberately fail to respond to <i>/do</i>or<i>/me</i> when necessary for the RP to continue.
+</li>
+<li>That you <u>not</u> RPs on the damage that your character has suffered. - eg. that you have been shot in
+leg, but runs on as if nothing has happened.
+</li>
+<li>That you use supernatural "forces" to reverse a scenario in your favor.</li>
+<li>Forcing another player into a scenario where they <u>don't</u> have the opportunity to
+actively participate in the scenario.
+</li>
+<li>Using your knowledge of the rules to manipulate RP scenarios, such as "Now you do
+otherwise this will be a municipal case ".
+</li>
+</ul>
+</p>
+<p><strong>1.11</strong> : Play realistically around busy areas, police stations, hospitals, and gang areas. Here you do not steal cars, do not steal people or rob
+people unless there is really good RP reason in advance.</p>
+<p><strong>1.12</strong> :
+It is <u>not</u> allowed to drastically change your appearance. The following are <u>not</u> allowed:
+Change your entire model, change face, age, skin color, or unrealistic hair style to what your character had before.
+</p>
+<p><strong>1.13</strong> : You must <u>not</u> use the server
+restart / crashes as an opportunity to escape from an RP situation from before restart / crash.
+You wait for people involved to return and continue RP.</p>
+<p><strong>1.14</strong> : It is <u>not</u> allowed to use recordings from either streams or 3rd-party programs in RP scenarios.
+<ul>
+<li>"Body-cams" and "dash-cams" should <u>not</u> be used. However, this rule is exempt from the police and emergency surveillance cameras.</li>
+</ul>
+</p>
+<p><strong>1.15</strong> : It is <u>not</u> allowed to
+combat logging, ie logging out to get out of an RP scenario.</p>
+<p><strong>1.16</strong> : [<b style="color:orange;">CHANGED</b>] It is maximum allowed to be 10 criminals in an RP scenario with the same criminal purpose - other would be considered powergaming.</p>
+<p><strong>1.17</strong> : Rape RP is not allowed.</p>
+</div>
+</div>
+<div class="error-notice">
+<div class="oaerror rosybrown" id="2nd">
+<h5>MORE CHARACTERS</h5>
+<hr>
+<p><strong>2.0</strong> : If you have multiple whitelisted characters, then your characters should <u>not</u> have relationships, or know each other.
+</p>
+</div>
+</div>
+<div class="error-notice">
+<div class="oaerror info" id="ooc">
+<h5>Out Of Character (OOC) / character Bridal</h5>
+<hr>
+<p><strong>3.0</strong> : [<b style="color:orange;">CHANGED</b>] The only people who have to break character are the staff. Are you breaking out of yours
+character then you smoke out as it destroys RP scenarios. Take it on Discord or contact
+an admin if needed.</p>
+<ul>
+<li>Violation / OOC talk ingame will result in direct 2 day ban.</li>
+<li>Statements such as "I'm right in my head", "I have applied to the municipality to be grouped" & "nerve defects" must be omitted.</li>
+</ul>
+<p><strong>3.1</strong> : Meta-gaming should <u>not</u> take place in OOC chat. For example, you must <u>not</u> ask where
+a lot of police who are at work or if a doctor can come and help you.</p>
+<p><strong>3.2</strong> : Disagreement arises around
+the execution of an RP scenario, <u>the</u> scenario should always be attempted with RP.
+<ul>
+<li>
+If this is <u>not</u> possible, try to resolve it internally on discord and <u>not</u> break out
+character ingame - neither in OOC chat nor via voice. If there is a breach, then report
+the player AFTER the scenario!
+</li>
+</ul>
+</p>
+<p><strong>3.3</strong> : All support cases must be taken on Discord in the support channels.</p>
+</div>
+</div>
+<div class="error-notice">
+<div class="oaerror warning" id="korsel">
+<h5>DRIVING</h5>
+<hr>
+<p><strong>4.0</strong> : Run realistically. Sports cars <u>cannot</u> drive in the mountains or drive
+200km / h in gravel.</p>
+<p><strong>4.1</strong> : You can only drive in / on vehicles via marked roads or paths on the minimap / map if you are in a hunt / escape.
+<ul>
+<li>The rule is made to create some more fun, longer and more realistic chases</li>
+</ul>
+</p>
+<p><strong>4.2</strong> : Do not drive so illegally that it is unrealistic. Fly <u>not</u> over
+for 30 red lights, up over the sidewalk and run down the lampposts.</p>
+<p><strong>4.3</strong> : It is <u>not</u> allowed to attract police attention unnecessarily
+without RP reason. (Copbait)</p>
+<p><strong>4.4</strong> : Cars in the poppy field are <u>not</u> allowed. This is considered illegal
+intrusion, so you do not <u>drive</u> into the field and park in the middle of it all. If you have a 2 wheel
+vehicle can be stored in the bush or between rows.</p>
+</p>
+</div>
+</div>
+<div class="error-notice">
+<div class="oaerror success" id="arbejde">
+<h5>JOBS</h5>
+<hr>
+<p><strong>5.0</strong> : If you are at work, you should
+fit this job. If you want to do something else, you have to quit your job and stay free. (F1> Directory> Employer> Keep Free)<br />
+<li>You can check your current job, check-in and payouts at any time <code>/job</code></li></p>
+<p><strong>5.1</strong> : Remember to drive in your real work vehicle / airplane. Are you
+money carrier, then you <u>do not</u> drive a sports car, etc.</p>
+<p><strong>5.2</strong> : Some jobs require a job contract (whitelist) - You can read more about these
+jobs under # job positions on our Discord.</p>
+<p><strong>5.3</strong> : If you, as a business owner, experience vandalism or violence at your company, it is possible to apply to the municipality to have surveillance cameras installed at your company. </p>
+</div>
+</div>
+<div class="error-notice">
+<div class="oaerror sort" id="opkald">
+<h5>CALL AND COMMUNICATION</h5>
+<hr>
+<p><strong>6.0</strong> : By calling a doctor, police,
+taxi, lawyer, etc. then describe what happens and <u>not</u> just: "Come here", "Hurry up"
+etc. Think about your calls and spend some time on them.</p>
+<p><strong>6.1</strong> : FIVEM SERVER NAME HERE's Discord has the only approved radios - and may <u>only</u> be used for as long as
+one also speaks ingame by radio use. Other 3rd party speech programs are <u>not</u> allowed to use as long as you are ingame.</p>
+<p><strong>6.2</strong> : It is permissible to sit in our hygiene channels when you are ingame, as long as there is no talk of things on the server / in the game. Refers to rule §1.5</p>
+</div>
+</div>
+<div class="error-notice">
+<div class="oaerror gult" id="bugs">
+<h5>BUGS, CHEATING, HACKING, EXPLOITING</h5>
+<hr>
+<p><strong>7.0</strong> : Of course, it is <u>not</u> allowed to hack, exploit, mod, or otherwise cheat.
+This results in a permanent ban without notice.</p>
+<p><strong>7.1</strong> : If you find bugs, please report them to staff immediately.
+Abusing this results in a permanent ban without it
+notice.</p>
+</div>
+</div>
+<div class="error-notice">
+<div class="oaerror lightgreen" id="bander">
+<h5>GANGS</h5>
+<hr>
+<p><strong>8.0</strong> : You must have a maximum of 10 members in a grouping / gang.</p>
+<p><strong>8.1</strong> : It is <u>not</u> allowed for the gangs to have a definite click. However
+it allowed to collaborate against a <u>card</u>common goal.</p>
+<p><strong>8.2</strong> : The gangs need <u>not</u> be enemies, but they should also <u>not</u> hang out
+on a friendship basis.</p>
+<p>Remember! We call for RP rather than murder and revenge. We completely reset your character
+at Character Killing</p>
+</div>
+</div>
+<div class="error-notice">
+<div class="oaerror brown" id="vaaben">
+<h5>ARMS</h5>
+<hr>
+<p><strong>9.0</strong> : Larger weapons must always be visible (on the back). Smaller weapons can
+is stored in the bag.</p>
+<p>Examples of larger weapons:</p>
+<p>
+<pre>Bat, Fracture iron, Golf club, Wrench, Ax and SMG, Shotguns etc.</pre>
+</p>
+<p>Examples of smaller weapons:</p>
+<p>
+<pre>Dagger, Hammer, Flashlight and Handgun (guns).</pre>
+</p>
+<p> - So it is <u>not</u> allowed to pull a bat out of his bag because one feels threatened or
+similar. It should only be used if it is visible on the back and made ready.</pre> </p>
+</div>
+</div>
+<div class="error-notice">
+<div class="oaerror pink" id="roeveri">
+<h5>ROBBERY</h5>
+<hr>
+<p><strong>10.0</strong> : There can be a maximum of 4 criminals
+for a shop robbery. There must be a minimum of 2 officers at work.</p>
+<p><strong>10.1</strong> : There must be <i>minimum</i> 4 officers at work to start one
+<U>bank</u> robbery. See also rule §1.16</p>
+<p><strong>10.2</strong> : It should take 45 min. from a robbery completed to a new one can be started. <i>(An interrupted robbery is not equal to a completed robbery.)</i></p>
+<p><strong>10.3</strong> : Hostages may be taken as long as the number is kept at a realistic level and hostage / robbery <u>not</u> is related to each other. In addition, any hostages must be included in the scenario verbally.</p>
+<p><strong>10.4</strong> : Be sure to keep any negotiation requirements reasonable. (No valet
+can raise 4,000,000 in cash)</p>
+<p><strong>10.5</strong> : There must <u>not</u> be fired before there has been an attempt at negotiations.</p>
+<p><strong>10.6</strong> : Civilians must leave the area following police directions (FearRP)</p>
+<p><strong>10.7</strong> : A robbery must be carefully planned. Ie you <u>don't</u> shop / bank several times a day..</p>
+<p><strong>10.8</strong> : You must only lie about the number of hostages, if you have at least one real hostage.</p>
+<p><strong>10.9</strong> : Ved røveri af en anden person, er det kun tilladt at røve personen for værdier de har på sig. F.eks er det <u>ikke</u> allowed to force a person to hand over a car or values ​​them <u>not</u> wearing.</p>
+<i>EXCLUSION: One must rob values ​​that a person does not have if the person robbed accepts this via / do</i>
+</div>
+</div>
+<div class="error-notice">
+<div class="oaerror orange" id="karakterdrab">
+<h5>CHARACTER KILLING (CK)</h5>
+<hr>
+<p><strong>11.0</strong> : One's character can <u>not</u> be killed unless you are yourself
+agree to this, with the following exceptions:
+<ul>
+<li>If you refuse Resuscitation from Emergency 112 or Police, then it is equally significant
+with your character being killed.
+</li>
+<li>If you commit suicide, an employee at Emergency Preparedness 112 can declare you dead, and thus
+also a character kill.
+</li>
+<li>It can be decided at any time that your character has died following a violent RP scenario,
+if 2 out of 3 staff / supporter members agree.
+</li>
+</ul>
+</p>
+<p><strong>11.1</strong> : It is <u>not</u> allowed to give away its values ​​before character killings or subsequently receive them on its new character.</p>
+<p><strong>11.2</strong> : After his character killing, you can choose an optional donation car from his
+old character.</p>
+<p><strong>11.3</strong> : If you want another player CK, contact support / staff via a ticket on Discord. Furthermore, it is important that you have prepared a text document with the basis for the desired CK and a video file from the scenario in which the killing is clearly clarified. This must be forwarded to the supporter / staff member who takes the case.
+</p>
+<br />
+<p><strong>If you want a man to have his character killed, you can apply for it below <a href="#">Show Characters</a>.<br />You get a new one
+Of course, you know nothing about what happened in your past life.</strong>
+</p>
+</div>
+</div>
+<div class="error-notice">
+<div class="oaerror grey" id="handlinger">
+<h5>ACTIONS</h5>
+<hr>
+<p><strong>12.0</strong> : You need actions that best fit the situation you are in.</p>
+<div class="pt-3">
+<b style="margin-left:12px;">PREVIEW:</b>
+<ul>
+<li>Mobile action using Twitter.</li>
+<li>Plant / Farm action at harvest (fungi, poppies etc.) when you are a criminal.</li>
+</ul>
+<p>Actions are taken<u>not</u> in vehicles!</p>
+</div>
+</div>
+</div>
+<div class="error-notice">
+<div class="oaerror greenb" id="koebsalg">
+<h5>PURCHASE & SALES</h5>
+<hr>
+<p><strong>13.0</strong> : It is by no means allowed to trade in real money (or others
+things of value) about things inside the game. This also contravenes FiveM's own Terms of Service
+Service. </p>
+<p>If this is detected, it will result in permanent ban without notice.</p>
+</div>
+</div>
+</div>
+</div>
+<button id="scrollup" title="Go to top">↑ Categories</button>
+
+
+<script src="js/app.js"></script>
+<script>
+    $(document).on('keyup keypress', 'form input[type="text"]', function(e) {
+        if(e.which == 13) {
+            e.preventDefault();
+            return false;
+        }
+    });
+</script>
+<script>
+    $(document).on('keyup keypress', 'form input[type="radio"]', function(e) {
+        if(e.which == 13) {
+            e.preventDefault();
+            return false;
+        }
+    });
+</script>
+<script>
+    $(document).on('click', '.panel-heading span.clickable', function(e){
+        var $this = $(this);
+        if(!$this.hasClass('panel-collapsed')) {
+            $this.parents('.panel').find('.panel-body').slideUp();
+            $this.addClass('panel-collapsed');
+            $this.find('i').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
+        } else {
+            $this.parents('.panel').find('.panel-body').slideDown();
+            $this.removeClass('panel-collapsed');
+            $this.find('i').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+        }
+    })
+
+
+    $("#success-alert").delay(10000).slideUp(2000, () => {
+        console.log('DONE!')
+    })
+</script>
+</body>
+
+</html>
